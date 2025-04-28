@@ -472,3 +472,169 @@ class TicTacToeGame {
     return false;
   }
 }
+
+
+//примеры использования
+//1
+final person = Person('Иван', 30, 'Мужской');
+person.printInfo(); // Name: Иван, Age: 30, Gender: Мужской
+person.increaseAge();
+person.changeName('Петр');
+person.printInfo(); // Name: Петр, Age: 31, Gender: Мужской
+
+//2
+void workerExample() {
+  // Создаем работника
+  final worker = Worker('Анна', 28, 'Женский', 50000);
+  worker.printInfo();    // Наследовано от Person
+  worker.printSalary();  // Выводит: Salary: 50000
+  
+  // Создаем менеджера
+  final manager = Manager('Олег', 45, 'Мужской', 100000);
+  manager.addSubordinate(worker); // Добавляем работника в подчиненные
+}
+
+//3
+void animalExample() {
+  // Демонстрация полиморфизма
+  demoPolymorphism(); 
+  // Можно работать с разными животными через общий интерфейс
+  Animal myPet = Random().nextBool() ? Dog() : Cat();
+  myPet.makeSound(); // Будет либо "Гав!", либо "Мяу!"
+}
+
+//4
+void transportExample() {
+  Transport vehicle = Random().nextBool() ? Car() : Bike();
+  vehicle.move(); // Будет либо "Машина едет", либо "Велосипед крутит педали"
+}
+
+//5
+void libraryExample() {
+  final library = Library();
+  library.addBook(Book('Война и мир', 'Толстой', 1869));
+  library.addBook(Book('Анна Каренина', 'Толстой', 1877));
+  
+  final tolstoyBooks = library.findByAuthor('Толстой');
+  print('Книг Толстого: ${tolstoyBooks.length}'); // Выведет: 2
+}
+
+//6
+void bankExample() {
+  final account = BankAccount('123456789', 1000);
+  account.deposit(500);
+  account.withdraw(200);
+  print('Баланс: ${account.balance}'); // Выведет: 1300.0
+}
+
+//7
+void counterExample() {
+  Counter();
+  Counter();
+  print('Создано объектов: ${Counter.count}'); // Выведет: 2
+}
+
+//8
+void shapeExample() {
+  final circle = Circle(5);
+  print('Площадь круга: ${circle.getArea()}'); // ~78.5
+  
+  final rect = Rectangle(4, 6);
+  print('Площадь прямоугольника: ${rect.getArea()}'); // 24
+}
+
+//9
+
+void movementExample() {
+  final animals = [Fish(), Bird(), Dog()];
+  animals.forEach((animal) => animal.move());
+  // Выведет:
+  // Рыба плавает
+  // Птица летает
+  // Собака бегает
+}
+
+//10
+void universityExample() {
+  final university = University();
+  university.addStudent(Student('Анна', 'Группа 1', 4.5));
+  university.addStudent(Student('Иван', 'Группа 2', 3.8));
+  
+  final sorted = university.sortByName();
+  print('Первый студент: ${sorted.first.name}'); // Выведет: Анна
+}
+//11
+void storeExample() {
+  final store = Store();
+  store.addProduct(Product('Яблоки', 50, 100));
+  
+  final apples = store.findByName('Яблоки');
+  print('Цена яблок: ${apples?.price}'); // Выведет: 50.0
+}
+
+//12
+void paymentExample() {
+  PaymentSystem payment = Random().nextBool() ? CreditCard() : PayPal();
+  payment.pay(1000); // Будет либо картой, либо PayPal
+}
+
+//13
+void idExample() {
+  final id1 = UniqueID();
+  final id2 = UniqueID();
+  print('ID1: ${id1.id}, ID2: ${id2.id}'); // Выведет: ID1: 1, ID2: 2
+}
+
+//14
+void rectangleExample() {
+  final rect = Rectangle(Point(0, 10), Point(10, 0));
+  print('Площадь: ${rect.getArea()}'); // Выведет: 100.0
+}
+
+//15
+void complexExample() {
+  final a = ComplexNumber(1, 2);
+  final b = ComplexNumber(3, 4);
+  final sum = a.add(b);
+  print('Сумма: ${sum.real}+${sum.imaginary}i'); // Выведет: 4.0+6.0i
+}
+
+//16
+void matrixExample() {
+  final m1 = Matrix([[1, 2], [3, 4]]);
+  final m2 = Matrix([[5, 6], [7, 8]]);
+  final sum = m1 + m2;
+  print('Сумма матриц: ${sum.data}'); // Выведет: [[6, 8], [10, 12]]
+}
+
+//17
+void gameExample() {
+  final player = Player('Герой', 100, Weapon('Меч', 20));
+  final enemy = Enemy('Орк', 50);
+  
+  player.attack(enemy);
+  print('Здоровье врага: ${enemy.health}'); // Выведет: 30
+}
+
+//18
+void orderExample() {
+  final customer = Customer('Алексей');
+  customer.addOrder(Order(1, [Product('Книга', 500, 1)]));
+  
+  customer.displayOrderHistory();
+  // Выведет: Order ID: 1, Total Cost: 500.0
+}
+
+//19
+void deviceExample() {
+  final phone = Smartphone('iPhone');
+  phone.turnOn();  // Выведет: iPhone is turned on
+  phone.takePhoto(); // Выведет: iPhone is taking a photo
+}
+
+//20
+void ticTacToeExample() {
+  final game = TicTacToeGame(Player('X', 1, Weapon('', 0)), Player('O', 1, Weapon('', 0)));
+  game.makeMove(0, 0); // X делает ход
+  game.makeMove(1, 1); // O делает ход
+}
